@@ -1,20 +1,20 @@
 version: 2
 jobs:
-  test:
-    docker:
-      - image: nikolaik/python-nodejs:latest
-    working_directory: ~/build
-    steps:
-      - checkout
-      - run:
-          name: Node Version
-          command: node --version
-      - run:
-          name: yarn
-          command: yarn
-      - run:
-          name: test
-          command: yarn test
+  # test:
+  #   docker:
+  #     - image: nikolaik/python-nodejs:latest
+  #   working_directory: ~/build
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Node Version
+  #         command: node --version
+  #     - run:
+  #         name: yarn
+  #         command: yarn
+  #     - run:
+  #         name: test
+  #         command: yarn test
 
   deploy:
     docker:
@@ -66,13 +66,13 @@ workflows:
     jobs:
       - deploy:
           requires:
-            - test
+          # - test
           filters:
             branches:
               only: master
       - develop:
           requires:
-            - test
+          # - test
           filters:
             branches:
               only: develop
