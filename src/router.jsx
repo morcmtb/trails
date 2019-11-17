@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router';
 import { UnauthenticatedRoute } from './templates/UnauthenticatedRoute';
-import { AuthenticatedRoute } from './templates/AuthenticatedRoute';
+// import { AuthenticatedRoute } from './templates/AuthenticatedRoute';
 
 import { Home } from './pages/Home';
 
