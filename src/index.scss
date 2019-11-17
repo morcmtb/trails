@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+$family-sans-serif: 'Roboto', sans-serif;
+
+$blue: #05384e;
+$red: #ff1a1a;
+$black: #000;
+$black-invert: #fff;
+
+$info: $blue;
+$danger: $red;
+
+// Importing all of Bulma
+@import 'bulma/bulma.sass';
