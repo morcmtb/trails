@@ -6,7 +6,9 @@
     "bulma": "^0.8.0",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.5.2",
+    "lodash.template": "^4.5.0",
     "luxon": "^1.21.1",
+    "mixin-deep": "^2.0.1",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -19,6 +21,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
+    "set-value": "^3.0.1",
     "styled-components": "^4.4.1",
     "yarn": "^1.19.1"
   },
