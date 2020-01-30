@@ -1,46 +1,8 @@
 version: 2
 jobs:
-  # test:
-  #   docker:
-  #     - image: nikolaik/python-nodejs:latest
-  #   working_directory: ~/build
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Node Version
-  #         command: node --version
-  #     - run:
-  #         name: yarn
-  #         command: yarn
-  #     - run:
-  #         name: test
-  #         command: yarn test
-
-  deploy:
-    docker:
-      - image: nikolaik/python-nodejs:latest
-    working_directory: ~/build
-    steps:
-      - checkout
-      - run:
-          name: yarn
-          command: yarn
-      - run:
-          name: build
-          command: yarn build
-      - run:
-          name: Install Aws
-          command: pip install awscli
-      - run:
-          name: Deploy to S3
-          command: aws s3 sync ~/build/build s3://morcmtb-trails --delete
-      - run:
-          name: CloudFront
-          command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID --paths "/*"
-
   develop:
     docker:
-      - image: nikolaik/python-nodejs:latest
+      - image: circleci/python:3-node
     working_directory: ~/build
     steps:
       - checkout
@@ -56,23 +18,15 @@ jobs:
       - run:
           name: Deploy to S3
           command: aws s3 sync ~/build/public s3://dev-morcmtb-trails --delete
-      - run:
-          name: CloudFront
-          command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID_DEV --paths "/*"
+      # - run:
+      #     name: CloudFront
+      #     command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID_DEV --paths "/*"
 
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - deploy:
-          requires:
-          # - test
-          filters:
-            branches:
-              only: master
       - develop:
-          requires:
-          # - test
           filters:
             branches:
               only: develop
