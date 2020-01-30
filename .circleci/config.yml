@@ -3,7 +3,7 @@ jobs:
   develop:
     docker:
       - image: circleci/python:3-node
-    working_directory: ~/build
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
@@ -17,7 +17,7 @@ jobs:
           command: pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync ~/build/public s3://dev-morcmtb-trails --delete
+          command: aws s3 sync ~/repo/build s3://dev-morcmtb-trails --delete
       # - run:
       #     name: CloudFront
       #     command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID_DEV --paths "/*"
