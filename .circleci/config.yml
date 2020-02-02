@@ -22,7 +22,7 @@ jobs:
       #     name: CloudFront
       #     command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID_DEV --paths "/*"
 
- stage:
+  stage:
     docker:
       - image: circleci/python:3-node
     working_directory: ~/repo
@@ -43,7 +43,6 @@ jobs:
       # - run:
       #     name: CloudFront
       #     command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID_DEV --paths "/*"
-
 
 workflows:
   version: 2
