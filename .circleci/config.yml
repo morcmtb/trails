@@ -53,9 +53,9 @@ workflows:
           filters:
             branches:
               only: develop
- build-stage:
-    jobs:
-      - stage:
-          filters:
-            branches:
-              only: master
+  build-stage:
+      jobs:
+        - stage:
+            filters:
+              branches:
+                only: master
