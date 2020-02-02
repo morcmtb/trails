@@ -18,9 +18,9 @@ jobs:
       - run:
           name: Deploy to S3
           command: aws s3 sync ~/repo/build s3://dev-morcmtb-trails --delete
-      # - run:
-      #     name: CloudFront
-      #     command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID_DEV --paths "/*"
+      - run:
+          name: CloudFront
+          command: aws cloudfront create-invalidation --distribution-id $AWS_DEV_CF_DISTRIBUTION_ID --paths "/*"
 
   stage:
     docker:
@@ -40,9 +40,9 @@ jobs:
       - run:
           name: Deploy to S3
           command: aws s3 sync ~/repo/build s3://stage-trails-conditions --delete
-      # - run:
-      #     name: CloudFront
-      #     command: aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID_DEV --paths "/*"
+      - run:
+          name: CloudFront
+          command: aws cloudfront create-invalidation --distribution-id $AWS_STAGE_CF_DISTRIBUTION_ID --paths "/*"
 
 workflows:
   version: 2
