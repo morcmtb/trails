@@ -80,10 +80,9 @@ workflows:
           filters:
             branches:
               only: stage
- build-prod:
+  build-prod:
     jobs:
       - production:
           filters:
             branches:
               only: master
-
