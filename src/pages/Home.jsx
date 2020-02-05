@@ -16,7 +16,7 @@ export function Home() {
   const [trails, setTrails] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.morcmtb.info/v1/trails")
+    fetch(`${process.env.REACT_APP_API}/v1/trails`)
       .then(res => res.json())
       .then(json => {
         setTrails(json);
