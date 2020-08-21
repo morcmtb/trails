@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
-import image from './../img/logo-white.png';
+import React, { useState } from "react";
+import classNames from "classnames";
+import image from "./../img/logo-white.png";
 
 const menu_items = [
-  { display: 'NEWS', link: 'https://www.morcmtb.org/news' },
-  { display: 'TRAILS', link: 'https://www.morcmtb.org/trails' },
-  { display: 'CONDITIONS', link: 'https://trails.morcmtb.org/' },
-  { display: 'PARTNERS', link: 'https://www.morcmtb.org/paartners' },
-  { display: 'SUPPORT', link: 'https://www.morcmtb.org/join' },
-  { display: 'ABOUT', link: 'https://www.morcmtb.org/about' },
-  { display: 'MORC SWAG SHOP', link: 'https://teespring.com/stores/morc' }
+  { display: "NEWS", link: "https://www.morcmtb.org/news" },
+  { display: "TRAILS", link: "https://www.morcmtb.org/trail" },
+  { display: "CONDITIONS", link: "https://trails.morcmtb.org/" },
+  { display: "PARTNERS", link: "https://www.morcmtb.org/partners" },
+  { display: "SUPPORT", link: "https://www.morcmtb.org/join" },
+  { display: "ABOUT", link: "https://www.morcmtb.org/about" },
+  { display: "MORC SWAG SHOP", link: "https://teespring.com/stores/morc" },
 ];
 
 export function Header({ children, ...rest }) {
@@ -23,8 +23,8 @@ export function Header({ children, ...rest }) {
               <img src={image} alt="morcmtb.org" />
             </a>
             <div
-              onClick={e => setActive(!active)}
-              className={classNames('navbar-burger ', { 'is-active': active })}
+              onClick={(e) => setActive(!active)}
+              className={classNames("navbar-burger ", { "is-active": active })}
             >
               <span />
               <span />
@@ -32,8 +32,8 @@ export function Header({ children, ...rest }) {
             </div>
           </div>
           <div
-            className={classNames('navbar-end navbar-menu ', {
-              'is-active': active
+            className={classNames("navbar-end navbar-menu ", {
+              "is-active": active,
             })}
           >
             {menu_items.map((item, i) => {
