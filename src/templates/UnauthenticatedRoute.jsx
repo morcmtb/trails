@@ -1,14 +1,26 @@
-import React from 'react';
+import { Container, createStyles, makeStyles, Theme } from '@material-ui/core';
+import React, { Fragment } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import { Header } from './../organisms/header';
-import { Section } from './../organisms/section';
+import { Header } from './../components/layout/Header';
 
-const Layout = ({ children, ...rest }) => (
-  <>
-    <Header />
-    <Section>{children}</Section>
-  </>
+const Layout = ({ children, ...rest }) => {
+  const classes = usestyles();
+  return (
+    <Fragment>
+      <Header />
+      <main>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="xl">{children}</Container>
+      </main>
+    </Fragment>
+  );
+};
+
+const usestyles = makeStyles((theme) =>
+  createStyles({
+    appBarSpacer: theme.mixins.toolbar,
+  })
 );
 
 export const UnauthenticatedRoute = ({
@@ -20,7 +32,7 @@ export const UnauthenticatedRoute = ({
     <Layout>
       <Route
         {...rest}
-        render={props =>
+        render={(props) =>
           !cProps.isAuthenticated ? (
             <C {...props} {...cProps} />
           ) : (

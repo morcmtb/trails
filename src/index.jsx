@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { store, history, persistor } from './store';
@@ -9,16 +8,16 @@ import { Router } from './router';
 
 import * as serviceWorker from './serviceWorker';
 
-import './index.scss';
+import { ThemeProvider } from './ThemeProvider';
 
 render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+  <ThemeProvider>
+    <Provider store={store}>
       <ConnectedRouter history={history}>
         <Router />
       </ConnectedRouter>
-    </PersistGate>
-  </Provider>,
+    </Provider>
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
