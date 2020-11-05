@@ -1,17 +1,16 @@
-import { Container, Grid } from '@material-ui/core';
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { TrailList } from '../components/trail/TrailList';
-
+import { addTrails } from '../components/trail/TrailsSlice';
 export function Home() {
-  const [trails, setTrails] = useState([]);
-
+  const trails = useSelector((state) => state.trails);
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API}/v1/trails`)
       .then((res) => res.json())
       .then((json) => {
         const trails = json.sort((a, b) => b.updatedAt - a.updatedAt);
-        setTrails(trails);
+        dispatch(addTrails(trails));
       })
       .catch((e) => console.log(e));
   }, []);

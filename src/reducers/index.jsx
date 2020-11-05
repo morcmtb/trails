@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
 
-export default history =>
-  combineReducers({
-    router: connectRouter(history)
-  });
+import trailsReducer from '../components/trail/TrailsSlice';
+
+const rootReducer = combineReducers({
+  trails: trailsReducer,
+});
+
+export { rootReducer };
