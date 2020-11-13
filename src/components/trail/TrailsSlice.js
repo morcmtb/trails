@@ -10,6 +10,9 @@ const TrailsSlice = createSlice({
   },
   reducers: {
     addTrails(state, action) {
+      action.payload.forEach((element) => {
+        console.log(element);
+      });
       state = action.payload;
       return state;
     },

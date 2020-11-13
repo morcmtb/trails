@@ -35,18 +35,16 @@ export const Trail: FC<ITrail> = (props) => {
         })}`}
         action={<FormControlLabel control={<Switch />} label="follow" />}
       />
-      <CardMedia></CardMedia>
+
       <CardContent>
         <Typography variant="body2" component="p">
           {trail.description}
         </Typography>
         <Grid container direction="row" justify="space-between">
           <Grid item>
-            <Typography variant="body2" component="p">
-              <address>
-                {trail.street} <br />
-                {trail.city}, {trail.state} {trail.zipcode}
-              </address>
+            <Typography variant="body2" component="address">
+              {trail.street} <br />
+              {trail.city}, {trail.state} {trail.zipcode}
               <Link
                 color="secondary"
                 href={`https://www.google.com/maps/place/${trail.street} ${trail.city}, ${trail.state} ${trail.zipcode}`}
@@ -57,10 +55,8 @@ export const Trail: FC<ITrail> = (props) => {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body2" component="p">
-              <address>
-                {trail.latitude}, {trail.longitude}
-              </address>
+            <Typography variant="body2" component="address">
+              {trail.latitude}, {trail.longitude}
             </Typography>
           </Grid>
         </Grid>

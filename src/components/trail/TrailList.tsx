@@ -12,7 +12,7 @@ export const TrailList: FC<TrailList> = (props) => {
     <Grid container spacing={1} alignItems="stretch">
       {trails.map((t, i) => {
         return (
-          <Grid item sm={12} md={4}>
+          <Grid item sm={12} md={4} key={i}>
             <Trail key={i} trail={t} />
           </Grid>
         );
