@@ -15,10 +15,12 @@ import { TrailStatusAvatar } from './TrailStatusAvatar';
 
 export interface ITrail {
   trail: any;
+  handleFollow: () => void;
 }
 
 export const Trail: FC<ITrail> = (props) => {
-  const { trail } = props;
+  const { trail, handleFollow } = props;
+
   return (
     <Card style={{ height: '100%' }}>
       <CardHeader
@@ -33,7 +35,12 @@ export const Trail: FC<ITrail> = (props) => {
           hour: '2-digit',
           minute: '2-digit',
         })}`}
-        action={<FormControlLabel control={<Switch />} label="follow" />}
+        action={
+          <FormControlLabel
+            control={<Switch onChange={handleFollow} value={trail.follow} />}
+            label="follow"
+          />
+        }
       />
 
       <CardContent>
