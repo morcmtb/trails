@@ -19,7 +19,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "set-value": "^3.0.2",
+    "set-value": "^4.0.1",
     "styled-components": "^5.1.0",
     "yarn": "^1.22.4"
   },
