@@ -1,15 +1,21 @@
 import React from 'react';
-import { Switch } from 'react-router';
-import { UnauthenticatedRoute } from './templates/UnauthenticatedRoute';
-// import { AuthenticatedRoute } from './templates/AuthenticatedRoute';
-
+import { Routes, Route } from 'react-router-dom';
+import { Header } from './organisms/header';
 import { Home } from './pages/Home';
 
+export const Layout = ({ children, ...rest }) => (
+    <div style={{ background: '#f6f7eb' }}>
+        <Header />
+        {children}
+    </div>
+);
+
 export function Router() {
-  const childProps = {};
-  return (
-    <Switch>
-      <UnauthenticatedRoute component={Home} props={childProps} />
-    </Switch>
-  );
+    return (
+        <Layout>
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </Layout>
+    );
 }
