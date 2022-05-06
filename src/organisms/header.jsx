@@ -24,7 +24,7 @@ export function Header({ children, ...rest }) {
             <AppBar color="primary">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <a href="/">
+                        <a href="http://morcmtb.org">
                             <img
                                 src="https://images.squarespace-cdn.com/content/v1/610d75a1d045322885a36dff/084a8b86-1fdd-4768-baf5-2c234f429232/Primary+Logo_Blue_White.png"
                                 style={{ height: '25px' }}
